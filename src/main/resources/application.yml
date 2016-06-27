@@ -1,1 +1,1 @@
-currentEnv: production
+spring.profiles.active: @profileActive@

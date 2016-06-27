@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.context.ApplicationContext;
 
 /**
  * Created on 19/11/14.
@@ -28,7 +29,15 @@ public class DemoApplication {
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(DemoApplication.class, args);
+        ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+        String[] activeProfiles = ctx.getEnvironment().getActiveProfiles();  
+        for (String profile : activeProfiles) {  
+            System.out.println("Spring Boot 使用profile为:{}"+ profile);
+        } 
     }
 
 }
+
+
+  
+     
